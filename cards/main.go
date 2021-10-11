@@ -3,9 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	// var card string = "Ace of spades"
-	card := "Ace of spades"
-	card = "Five of diamonds"
+	card := newCard()
 
 	fmt.Println(card)
+}
+
+func newCard() string {
+	return "Five of diamonds"
 }

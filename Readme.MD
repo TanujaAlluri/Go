@@ -1,4 +1,5 @@
-# Go
+# Go Udemy course - "Go: The Complete Developer's Guide (Golang)"
+
 ### How to run the file:
 
 `go run hello-world.go `
