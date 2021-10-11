@@ -19,7 +19,6 @@
 
 - go test: runs any tests
 
-
 ### Types of packages:
 
 - Executable: 
@@ -29,4 +28,20 @@
 - Reusable: 
   - code used as helpers
   - package blahblah => reusable package
+
+### Data types:
+
+Go, java, C++ => statically typed languages
+
+Javascript, python, ruby => dynamically typed languages
+
+basic go data types:
+- bool
+- string
+- int
+- float64
+
+
+
+
 
