@@ -42,6 +42,11 @@ basic go data types:
 - int
 - float64
 
+### basic Data structures:
+
+- Array: fixed length
+- Slice: array with variable length
+
 
 
 
