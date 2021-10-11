@@ -1,13 +1,11 @@
 # Go
-## Hello world program:
-
-How to run the file:
+### How to run the file:
 
 `go run hello-world.go `
 
 `go run <filename>.go`
 
-GO CLI commands:
+### GO CLI commands:
 
 - go run : takes input of 1 or more files, compiles and executes them instantly
 
@@ -20,3 +18,15 @@ GO CLI commands:
 - go get: downloads the raw src code of someone's package
 
 - go test: runs any tests
+
+
+### Types of packages:
+
+- Executable: 
+  - generates runnable executable
+  - package main => executable or runnable file
+  - must always have a function called 'main'
+- Reusable: 
+  - code used as helpers
+  - package blahblah => reusable package
+
