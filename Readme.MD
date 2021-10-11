@@ -47,6 +47,14 @@ basic go data types:
 - Array: fixed length
 - Slice: array with variable length
 
+### Receiver:
+
+A function which takes the argument of a custom data type.
+It sets up methods on a type so that the method is
+accessible to all variables that we declare of that type.
+
+By creating a new type with a function that has a receiver, we
+are adding a 'method' to any value of that type
 
 
 
