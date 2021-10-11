@@ -45,7 +45,20 @@ basic go data types:
 ### basic Data structures:
 
 - Array: fixed length
-- Slice: array with variable length
+- Slice: 
+  - array with variable length
+  - slices are zero-indexed
+  - accessing ex: 
+      `fruits := []string {"grape", "apple", "orange", "banana"}
+       
+       fruits[0] // reutrns "grape"
+       
+       fruits[0:3] // returns "grape", "apple", "orange"
+       
+       fruits[:3] // returns "grape", "apple", "orange"
+       
+       fruits[2:]// returns "orange", "banana"`
+  - 
 
 ### Receiver:
 
