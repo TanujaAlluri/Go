@@ -209,3 +209,35 @@ func updateSlice(s []string) {s[0]="Bye"}`
 | 'Use pointers         |     'Dont worry         |
 | to change             |     about pointers'     |
 | these in a func'      |                         |
+
+
+### Maps
+
+- Similar to object in javascript
+- collection of key value pairs
+- keys and values are statically typed
+- all keys should be same type
+- all values should be same type
+
+
+#### Differences between maps and structs
+
+Map:
+- All keys are of same type
+- All values are of same type
+- Keys are indexed, we can iterate over them
+- Reference type :=> we are passing by references via functions
+- dont need to know all keys at compile time
+- used to represent a collection of similar or related proerties
+
+
+Struct:
+- Values can be of different type, keys are not statically typed
+- Keys dont support indexing
+- Value type 
+- need to know all keys at compile time
+- used to represent one "thing" with lot of properties
+
+
+
+
