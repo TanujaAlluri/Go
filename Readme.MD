@@ -67,7 +67,17 @@ It sets up methods on a type so that the method is
 accessible to all variables that we declare of that type.
 
 By creating a new type with a function that has a receiver, we
-are adding a 'method' to any value of that type
+are adding a 'method' to any value of that type.
+
+Syntax: `func (<name> <type>) <name-of-fun>(zero or more args<arg-name arg-type>) <return-type> {}`
+
+Ex: `func (d deck) toString() string {}`
+
+Usage: `cards := deck{} cards.toString()`
+
+### Type conversion with Go:
+
+From string to slice byte - Ex: `[]byte("Hi There!")`
 
 
 
