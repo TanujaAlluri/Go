@@ -107,22 +107,28 @@ From string to slice byte - Ex: `[]byte("Hi There!")`
 If we run `jim := person("jim","party")`; 
 jim is a pointer to the value at address 101
 
-| 101 | person("jim","party") | <---- jim 
+| address | val                   |
+|---------|-----------------------|
+| 101     | person("jim","party") | <---- jim 
 
 When we run `jim.updateName("jimmy") ... func (p person) updateName(newFirstName string)`
 GO makes a copy of jim and populates it in variable p. and the copy is available in updateName function
 
-| 101 | person("jim","party") | <---- jim 
-
-| 105 | person("jim","party") | <---- p
+| address | val                   |
+|---------|-----------------------|
+| 101     | person("jim","party") | <---- jim 
+|...      |...                    |
+| 105     | person("jim","party") | <---- p
 
 And after running `p.firstName="jimmy"` inside the receiver function
 
-| 101 | person("jim","party") | <---- jim 
+| address | val                     |
+|---------|-------------------------|
+| 101     | person("jim","party")   | <---- jim 
+|...      |...                      |
+| 105     | person("jimmy","party") | <---- p
 
-| 105 | person("jimmy","party") | <---- p
-
-#### pointer operators
+#### Pointer operators
 
 Pointer is a variable that stores an address of a variable
 - '&variable' => give me the memory address of this variable
@@ -130,7 +136,9 @@ Pointer is a variable that stores an address of a variable
 - '*type' => Ex: `pp *person` => pp should be a pointer for a person type
 
 
-| 101 | person("jim","party") |
+| address | val                     |
+|---------|-------------------------|
+| 101     | person("jim","party")   | 
     ^             ^
     |             |
     |             |
@@ -141,5 +149,63 @@ Pointer is a variable that stores an address of a variable
 address to value: *address
 value to address: &value
 
+#### GO Shortcut
+
+If we declare a receiver on pointer to a type,
+Go allows us to call the function on:
+- pointer to the type
+- the type itself
+
+Ex: Receiver: `func (pp *person) updateName() {}`
+We can call using:
+- personPointer := &person{} personPointer.updateName()
+- person{}.updateName()
 
 
+
+### Reference types vs Value types
+
+Arrays: primitive data structure, cant be resized, rarely used directly
+
+Slice: Can grow or shrink, Used 99% of the time for lists of elements, Fancy Array
+
+When we declare a slice:
+`mySlice := []string{"Hi", "There", "How", "Are", "You"}`
+
+2 data structures are created:
+
+- slice: properties - pointer to head, capacity, length
+- array: | "Hi" | "There" | .....| "You" |
+
+|   Address   |      Value                                  |
+| ----------- | ---------------------------------------     |
+|   000       |                                             |
+|   001       |      length, capacity, pointer to head --   |   <----- mySlice
+|   002       |       []string{"Hi", "There", ...}  <----|  |
+
+pointer to head points to the actual array at 002 address
+
+Now when we pass a slice to a function: `func updateSlice(s []string) {}`
+Go still makes a copy of the slice datastructure.
+
+But then, the new copy of slice still points to the same array
+
+Hence, when we try to modify the underlying array, since both are pointing to the same array, the implementation might not feel like 'Pass by value'
+
+`mySlice := []string{"Hi", "There", "How", "Are", "You"}
+updateFirstElement(mySlice) // returns => {"Bye", "There", "How", "Are", "You"}
+
+func updateSlice(s []string) {s[0]="Bye"}`
+
+
+| Value types           |     Reference types     |
+| --------------------  |  ---------------------- |
+| int                   |     Slices              |
+| float                 |     Maps                |
+| string                |     Channels            |
+| bool                  |     Pointers            |
+| structs               |     Functions           |
+|                       |                         |
+| 'Use pointers         |     'Dont worry         |
+| to change             |     about pointers'     |
+| these in a func'      |                         |
