@@ -122,11 +122,24 @@ And after running `p.firstName="jimmy"` inside the receiver function
 
 | 105 | person("jimmy","party") | <---- p
 
+#### pointer operators
+
+Pointer is a variable that stores an address of a variable
+- '&variable' => give me the memory address of this variable
+- '*pointer' => give me the value this memory address is pointing at
+- '*type' => Ex: `pp *person` => pp should be a pointer for a person type
 
 
+| 101 | person("jim","party") |
+    ^             ^
+    |             |
+    |             |
+    |             |
+  address       value
+  Ex: jimpointer  Ex: jim
 
-
-
+address to value: *address
+value to address: &value
 
 
 
