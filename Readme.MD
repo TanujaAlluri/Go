@@ -42,6 +42,14 @@ basic go data types:
 - int
 - float64
 
+zero value or default value:
+- string: ""
+- int: 0
+- float64: 0
+- bool: false
+
+Note: default value is not 'nil'
+
 ### basic Data structures:
 
 - Array: fixed length
@@ -84,6 +92,13 @@ From string to slice byte - Ex: `[]byte("Hi There!")`
 - Test file name ends with _test.go
 - Command: `go test`
 - No testing framework
+
+### Structs:
+
+- data structure in Go
+- collection of properties that are related together
+- similar to an object in javascript (very high level)
+
 
 
 
