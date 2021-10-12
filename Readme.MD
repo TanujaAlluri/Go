@@ -79,6 +79,13 @@ Usage: `cards := deck{} cards.toString()`
 
 From string to slice byte - Ex: `[]byte("Hi There!")`
 
+### Testing:
+
+- Test file name ends with _test.go
+- Command: `go test`
+- No testing framework
+
+
 
 
 
