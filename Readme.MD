@@ -98,6 +98,32 @@ From string to slice byte - Ex: `[]byte("Hi There!")`
 - data structure in Go
 - collection of properties that are related together
 - similar to an object in javascript (very high level)
+- when run `jim := person("jim","party")`; Jim is actually a reference to the struct in memory
+
+### Pointers:
+
+- Go is a <b>PASS BY VALUE</b> language
+
+If we run `jim := person("jim","party")`; 
+jim is a pointer to the value at address 101
+
+| 101 | person("jim","party") | <---- jim 
+
+When we run `jim.updateName("jimmy") ... func (p person) updateName(newFirstName string)`
+GO makes a copy of jim and populates it in variable p. and the copy is available in updateName function
+
+| 101 | person("jim","party") | <---- jim 
+
+| 105 | person("jim","party") | <---- p
+
+And after running `p.firstName="jimmy"` inside the receiver function
+
+| 101 | person("jim","party") | <---- jim 
+
+| 105 | person("jimmy","party") | <---- p
+
+
+
 
 
 
