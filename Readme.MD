@@ -240,5 +240,36 @@ Struct:
 
 ### Interfaces
 
+declare an interface:
+
+`type bot interface { getGreeting(<list-ofargs>) <list-of-return-types>}`
+
+`type bot interface { 
+  getGreeting(int, string) (string, error)
+  getBotVersion() float64
+  ...
+}`
+
+implies, we have a new type bot. And any types that have a getGreeting() function that returns a string are members or implementations of this type/ interface.
+
+And all functions on type bot, are accessible to the implementations/ members of the interface type
+
+- interfaces are not generic types : other languages have generic types, Go doesnt
+- interfaces are implicit: no manual code to link together bot and english bot, no explicit link like ' type englishBot implelements Bot '
+- interfaces are a contract to help us manage types and help us reuse code
+
+#### Concrete type and interface types
+
+- concrete type
+  - we can create a value out of this type
+  - ex: map, struct, int, string
+
+- interface type
+  - we cannot create a value out of this type
+
+
+
+
+
 
 
