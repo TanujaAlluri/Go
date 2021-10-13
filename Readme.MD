@@ -238,6 +238,7 @@ Struct:
 - need to know all keys at compile time
 - used to represent one "thing" with lot of properties
 
+### Interfaces
 
 
 
