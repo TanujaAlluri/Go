@@ -277,6 +277,60 @@ satisfy Reader and Closer interfaces.
 	Closer
 }`
 
+### Channels and Go Routines
+
+Channels and GO routines are structures in Go, for concurrent programming
+
+#### Go Routines
+
+Every running program has one Go Routine by default
+
+One Go Routine executes our code line-by-line
+
+Go routine :=> process that executes the code
+
+Go has a scheduler that schedules the Go routines on a one core CPU
+
+By default go runs on 1 core of the CPU
+
+Concurrency => technique by which the program deals with multiple processes. But they are not exactly run at the same time.
+
+Scheduler : Runs one routine until it is finished or makes a blocking call. 
+
+After that routine is blocked or finished, another one is picked. (By default, since one CPU core)
+
+We can configure Go to run on multiple CPUs
+
+If there are 3 CPU cores and 3 Go routines, Scheduler will simply assign each Go routine to each CPU core.
+
+Parallelism => when processes are run on 2 different CPU cores, such that there is a process running exactly at the same time. Doing multiple processes at the same time is parallelism. Dealing with multiple processing is concurrency.
+
+Our running program consists of:
+- Main routine : main routine created when we launch our program
+- Child Go routines : Child routines created by the 'go' keyword
+
+Use 'go' keyword only before function calls
+
+
+time ------>
+
+------------------------------------------------------------->
+|program started
+
+|-----main routine-----------------|(exits)
+
+        |------child routine--------------------|
+
+        |---------child routine---------------|
+
+        |-------child routine---------------------|
+
+
+Main routine doesnt care if there is some code execution left for the child routines. Hence, it might exit even before the child routine code actually finishes. And the program ends, and we cant see the result.
+
+
+
+
 
 
 
