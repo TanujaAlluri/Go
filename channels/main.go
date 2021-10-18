@@ -20,13 +20,9 @@ func main() {
 		go checkLink(url, c)
 	}
 
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-	fmt.Println(<-c)
-
-	fmt.Println(<-c)
+	for i := 0; i < len(urls); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 func checkLink(link string, c chan string) {
