@@ -326,7 +326,48 @@ time ------>
         |-------child routine---------------------|
 
 
-Main routine doesnt care if there is some code execution left for the child routines. Hence, it might exit even before the child routine code actually finishes. And the program ends, and we cant see the result.
+Main routine doesnt care if there is some code execution left for the child routines. Hence, it might exit even before the child routine code actually finishes. And the program quits, and we cant see the result.
+
+#### Channels
+
+Channels are used for communicating between Go routines.
+
+If we send something into a channel, that will be sent to any other routine that has access to that channel
+
+Channels are similar to values that we create, like an int, a string, a struct
+
+Channels are also typed. Meaning we can pass values of a single data type in a given channel
+
+We create a channel that is meant for sharing strings between say A and B Go routines. We can only send strings through this channel.
+
+Sending data through channels:
+
+channel<-5  : sending the value '5' to a channel
+
+myNumber<-channel : wait for a value to be sent from the channel. When we get one, assign that value to 'myNumber'
+
+fmt.printLn(<-channel) : wait for a value to be sent from the channel. When we get one, log it out immediately.
+
+
+'<-channel' or receiving message from a channel is a blocking call just as http request is a blocking call. Whenever main routine sees a '<-channel' call, it puts the main routine to sleep, and another go routine is picked up.
+
+
+
+----------> time
+
+---------------------------------------------------------------------------------->
+
+      |program started
+
+      |----main go routine-----|(for loop execution complete)     |---main go routine----|(main go routine prints the values received in channel, and exists since no more code to execute)
+
+                        |-----google go routine-------------------|(google routine finished, sends message to channel, main routine wakes up and receives message from channel)
+
+                            |----facebook go routine-----------------------------------------------|
+
+                                |----stackoverflow go routine-------------------------------------|
+
+
 
 
 
