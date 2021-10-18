@@ -19,6 +19,13 @@ func main() {
 	for _, url := range urls {
 		go checkLink(url, c)
 	}
+
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+
 	fmt.Println(<-c)
 }
 

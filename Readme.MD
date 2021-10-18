@@ -369,6 +369,12 @@ fmt.printLn(<-channel) : wait for a value to be sent from the channel. When we g
 
 
 
+'Receiving a value from a channel' is a blocking call. If no one is sending any value into the channel, the routine sleeps, and waiting to receive a value from the channel. If this is main routine, this will cause the program to hang.
+
+
+
+
+
 
 
 
