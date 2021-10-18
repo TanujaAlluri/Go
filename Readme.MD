@@ -267,6 +267,16 @@ And all functions on type bot, are accessible to the implementations/ members of
 - interface type
   - we cannot create a value out of this type
 
+Forming an interface from other interfaces:
+
+specifies that if u want to satisfy ReadCloser interface,
+satisfy Reader and Closer interfaces.
+
+`type ReadCloser interface {
+	Reader
+	Closer
+}`
+
 
 
 
