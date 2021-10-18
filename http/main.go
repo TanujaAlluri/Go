@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+type logWriter struct{}
+
 func main() {
 	res, err := http.Get("http://google.com")
 
@@ -19,11 +21,18 @@ func main() {
 
 	//	so that when Read function fills this slice, there is space.
 	// Read function cannot resize the slice that we provide, hence this appraoch.
-	bs := make([]byte, 99999) // ==> returns byte slice with 99999 empty spaces,
-	res.Body.Read(bs)
-	fmt.Println("Byte slice:", string(bs))
+	// bs := make([]byte, 99999) // ==> returns byte slice with 99999 empty spaces,
+	// res.Body.Read(bs)
+	// fmt.Println("Byte slice:", string(bs))
 
-	io.Copy(os.Stdout, res.Body)
+	lw := logWriter{}
+	io.Copy(lw, res.Body)
+}
+
+func (lw logWriter) Write(bs []byte) (int, error) {
+	fmt.Println(string(bs))
+	fmt.Println("Just wrote this many bytes: ", len(bs))
+	return len(bs), nil
 }
 
 /*
