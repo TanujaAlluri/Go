@@ -376,7 +376,11 @@ Using 'range' keyword with slice := take element from the slice, assign it to a 
 
 Using 'range' keyword with channel := wait for the channel to return a value. After the channel has returned a value, assign it to a variable, that we can access inside the for loop
 
+### Function literal
 
+Similar to anonymous function in javascript, or Lambda in C#
+
+Syntax to invoke: `func() {} ()`
 
 
 
