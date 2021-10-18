@@ -283,6 +283,8 @@ Channels and GO routines are structures in Go, for concurrent programming
 
 #### Go Routines
 
+Go routine is a seperate line of code execution that can be used to handle blocking code.
+
 Every running program has one Go Routine by default
 
 One Go Routine executes our code line-by-line
@@ -381,6 +383,10 @@ Using 'range' keyword with channel := wait for the channel to return a value. Af
 Similar to anonymous function in javascript, or Lambda in C#
 
 Syntax to invoke: `func() {} ()`
+
+Never reference variables directly in the go routine.
+
+Always pass variables as arguments to func literal.
 
 
 
